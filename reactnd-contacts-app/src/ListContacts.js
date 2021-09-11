@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 class ListContacts extends Component {
-static PropTypes = {
+static propTypes = {
     contacts : PropTypes.array.isRequired,
     onDeleteContact: PropTypes.func.isRequired
 }
@@ -40,6 +40,10 @@ clearQuery = () => {
              placeholder="Search Contacts"
              value={query}
              onChange={(event)=> this.updateQuery(event.target.value)}/>
+             <Link 
+              to='/create'
+              className = 'add-contact'>
+              Add contact </Link>
             </div>
 
             {showingContacts.length !== contacts.length && (
